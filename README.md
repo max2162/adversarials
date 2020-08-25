@@ -14,6 +14,6 @@ We can easily see in the bar diagram, that this image is classified as a sea lio
 
 The Carlini-Wagner-Attack is a targeted attack, meaning we can choose as which class we want the classifier to missclassify the adversarial image. Another attack I implemented is the Fast Gradient Sign Method. Let's look at how a adversarial image generated with the Fast Gradient Sign Method looks in the predictor. 
 
-![After choosing an FGSM adversarial image](docs/ressources_readme/selected_adversarial.PNG)
+![After choosing an FGSM adversarial image](docs/ressources_readme/FGSM.PNG)
 
 The adversarial image of an ostrich was generated with the Fast Gradient Sign Method with parameter `epsilon=0.004`.
