@@ -1,5 +1,6 @@
 import tensorflow as tf
 import numpy as np
+from tqdm import tqdm
 
 
 def loss(model, perturbated_image, target):
@@ -125,7 +126,8 @@ def perform_attack(model, input_image, target, epochs=2500, c=1, tb=True, tb_pat
     w = tf.Variable(tf.zeros(tf.shape(input_image)), dtype=tf.dtypes.float32)
     optimizer = tf.keras.optimizers.Adam()
     file_writer = tf.summary.create_file_writer(tb_path)
-    for epoch in range(epochs):
+
+    for epoch in tqdm(range(epochs)):
         loss_val, misclassification_loss = perform_iteration(optimizer, model, input_image, target, w, c)
         if tb:
             summary_entry(file_writer, epoch, input_image, w, misclassification_loss, loss_val)
