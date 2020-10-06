@@ -21,6 +21,9 @@ class AdversarialAttack:
             self.attack_algorithm = carlini_wagner
             # the carlini wagner attack relies on using logits, so the softmax layer has to be split
             self.model = self.attack_algorithm.preprocess_model(self.model)
+        elif attack_algorithm_name in ['opa', 'one_pixel_attack']:
+            self.attack_algorithm = one_pixel_attack
+            # the carlini wagner attack relies on using logits, so the softmax layer has to be split
 
     def load_and_format_img(self, path, size):
         """

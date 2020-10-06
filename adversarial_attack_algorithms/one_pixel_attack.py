@@ -60,12 +60,13 @@ def generate_perturbated_image(input_image, agent=None):
     return image_reshaped
 
 
-def mutate_population(population, fitness):
+def mutate_population(population, fitness, factor=0.5):
     """
     This method applies differential evolution to the population and returns a mutated population with strictly better
     fitness values (in case of untargeted attack lower) than the input population.
     :param population: list of agent 5-tuples (x, y, r, g, b)
     :param fitness: list of fitness of corresponding agents in population
+    :param factor: scalar for the weighting of difference between agent r2 and r3
     :return: (population, fitness) with corresponding updated population and fitness
     """
     for agent_index in range(len(population)):
