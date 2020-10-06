@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import tkinter
 from tkinter import ttk
 import adversarial_attack
@@ -45,7 +48,7 @@ class MainGUI:
     adversarial attack on the given model.
     """""
 
-    def __init__(self, net, size=(224, 224), default_path='default.png'):
+    def __init__(self, net, size=(224, 224), default_path='ressources/default.png'):
         """
         Initialization method for MainGUI objects
         :param net: model to predict classes
@@ -165,7 +168,6 @@ class MainGUI:
         """
         predictions = [(label, probability) for _, label, probability in
                        decode_predictions(self.net.predict(image), top=5)[0]]
-        print(predictions)
         labels = [a for a, _ in predictions]
         probabilities = [b for _, b in predictions]
         return labels, probabilities
@@ -198,7 +200,6 @@ class MainGUI:
         new_img = new_img.resize((self.size[0], self.size[1]), Image.ANTIALIAS)
         new_img_tk = ImageTk.PhotoImage(new_img)
         self.second_img.configure(image=new_img_tk)
-        # we have to store the image, because otherwise the garbage-collector would delete it
         self.second_img.image = new_img_tk
         self.adv_image = load_and_format_image(self.path, self.size)
         self.show_prediction(self.adv_image, self.second_img)
