@@ -1,4 +1,4 @@
-# adversarialattacks
+# adversarials
 This repository contains an implementation of three adversarial attacks. The implemented methods are [the Fast Gradient Sign Method](https://arxiv.org/abs/1412.6572), [the Carlini-Wagner-Attack](https://ieeexplore.ieee.org/abstract/document/7958570) and [the One-Pixel-Attack](https://ieeexplore.ieee.org/document/8601309).
 
 The adversarial examples can be generated as done in `main.py`. The generated adversarial examples will be stored in the specified target directory. The `viewer/image_predictor.py` script can be used to compare the original image, the adversarial version and the respective prediction of a VGG16 model, that was pretrained on the [ImageNet](http://www.image-net.org/) dataset.
